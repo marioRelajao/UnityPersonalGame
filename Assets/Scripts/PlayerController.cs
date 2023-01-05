@@ -18,8 +18,6 @@ public class PlayerController : MonoBehaviour
     {
         movementInput.x = Input.GetAxisRaw("Horizontal"); //El eje X se guia por el input llamado "Horizontal"
         movementInput.y = Input.GetAxisRaw("Vertical");
-        Debug.Log($"X: {movementInput.x}"); //A ver que valor tiene
-        Debug.Log($"Y: { movementInput.y}"); //A ver que valor tiene
-        Debug.Log($"El vector2 tiene valores {movementInput}");
+        transform.position += new Vector3(movementInput.x, movementInput.y, 0f)*Time.deltaTime*movementSpeed;
     }
 }
