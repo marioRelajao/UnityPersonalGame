@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
         //----------------------------------MOVIMIENTO DEL JUGADOR----------------------------------
         movementInput.x = Input.GetAxisRaw("Horizontal"); //El eje X se guia por el input llamado "Horizontal"
         movementInput.y = Input.GetAxisRaw("Vertical");
+        movementInput.Normalize();//Normalizamos movimiento diagonal
         playerRigidbody.velocity = movementInput * movementSpeed;
 
         //----------------------------------ROTAR ARMA----------------------------------
