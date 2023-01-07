@@ -5,20 +5,23 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] int movementSpeed; //Podemos acceder a el desde el inspector, pero otros scripts no
-
+    [SerializeField] GameObject bullet; //Para spawnear la bala
+    [SerializeField] Transform firePos; //Desde este punto
     [SerializeField] Rigidbody2D playerRigidbody; //Para poder controlar el movimiento del pana
-
+    [SerializeField] float timeBetweenShots; //Añadimos cadencia
     [SerializeField] Transform weaponArm; //Apuntar arma
 
     private Animator playerAnimator;
     private Camera mainCamera;
     private Vector2 movementInput; //Vector de 2 dimensiones [X,Y] para el movimiento
-    
+    private float shotCounter;
+
     // Start is called before the first frame update
     void Start()
     {
         mainCamera = Camera.main; //Referenciamos a la camara principal
         playerAnimator = GetComponent<Animator>(); //Ahora tenemos referencia al Animator del Player
+        shotCounter = 0;
     }
 
     // Update is called once per frame
@@ -58,6 +61,21 @@ public class PlayerController : MonoBehaviour
         else
         {
             playerAnimator.SetBool("IsWalking", false);
+        }
+
+        //----------------------------------Disparar----------------------------------
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    Instantiate(bullet,firePos.position,firePos.rotation);//Instanciamos la bala con la pos y rotacion correctas
+        //}
+        if (Input.GetMouseButton(0))
+        {
+            shotCounter -= Time.deltaTime;
+            if (shotCounter <= 0)
+            {
+                Instantiate(bullet, firePos.position, firePos.rotation);//Instanciamos la bala con la pos y rotacion correctas
+                shotCounter = timeBetweenShots;
+            }
         }
     }
 }

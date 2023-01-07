@@ -6,6 +6,7 @@ public class PlayerBulletController : MonoBehaviour
 {
 
     [SerializeField] float bulletSpeed = 5f; //Le damos un valor por defecto
+    [SerializeField] GameObject bulletImpactEffect;
 
     private Rigidbody2D bulletRigidBody;
 
@@ -23,6 +24,7 @@ public class PlayerBulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) //Collision es el elemento con el que choicamos
     {
+        Instantiate(bulletImpactEffect.transform, transform.position, transform.localRotation);
         Destroy(gameObject);
     }
 }
