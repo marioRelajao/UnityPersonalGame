@@ -5,10 +5,10 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] float enemySpeed; //Controlamos la velocidad del enemigo
-    private Rigidbody2D enemyRigidbody;
     [SerializeField] float playerChaseRange; //A partir de que rango el enemigo nos persigue
     [SerializeField] float playereStopRange; //A partir de que rango el enemigo se aburre
-
+    [SerializeField] int enemyHealth = 100;
+    private Rigidbody2D enemyRigidbody;
     private Animator enemyAnimator;
     private Vector3 directionToMove; //Direccion a la que se va a mover el moñeco
     private bool isChasing;
@@ -69,6 +69,14 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void DamageEnemy(int dmgTaken)
+    {
+        enemyHealth -= dmgTaken;
+        if (enemyHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

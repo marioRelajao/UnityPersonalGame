@@ -7,7 +7,8 @@ public class PlayerBulletController : MonoBehaviour
 
     [SerializeField] float bulletSpeed = 5f; //Le damos un valor por defecto
     [SerializeField] GameObject bulletImpactEffect;
-
+    [SerializeField] GameObject bulletImpactEffectOnEnemy;
+    [SerializeField] int dmgBullet = 10;
     private Rigidbody2D bulletRigidBody;
 
     // Start is called before the first frame update
@@ -24,7 +25,18 @@ public class PlayerBulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) //Collision es el elemento con el que choicamos
     {
-        Instantiate(bulletImpactEffect.transform, transform.position, transform.localRotation);
+        
+        //Si con lo que chocamos es un enemigo, ejecuta la funcion
+        if (collision.CompareTag("Enemy"))
+        {
+            Instantiate(bulletImpactEffectOnEnemy.transform, transform.position, Quaternion.Euler(0, 0, 0));
+            collision.GetComponent<EnemyController>().DamageEnemy(dmgBullet);
+        }
+        else
+        {
+            Instantiate(bulletImpactEffect.transform, transform.position, transform.localRotation);
+        }
+
         Destroy(gameObject);
     }
 }

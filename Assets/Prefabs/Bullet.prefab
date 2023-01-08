@@ -50,6 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 10
   bulletImpactEffect: {fileID: 7963931012577547322, guid: b6447a0674fecdf4394ffd878e64c975, type: 3}
+  bulletImpactEffectOnEnemy: {fileID: 4188872009867330740, guid: a990042658b8a77458b0d66df9cec1ec, type: 3}
+  dmgBullet: 10
 --- !u!212 &6974096435802446669
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -77,5 +77,7 @@ public class PlayerController : MonoBehaviour
                 shotCounter = timeBetweenShots;
             }
         }
+        shotCounter -= Time.deltaTime;
+
     }
 }

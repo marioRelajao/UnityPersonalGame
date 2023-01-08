@@ -219,9 +219,10 @@ GameObject:
   - component: {fileID: 735964469}
   - component: {fileID: 735964468}
   - component: {fileID: 735964467}
+  - component: {fileID: 735964471}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,7 +258,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.28, y: -0.066522}
@@ -285,9 +286,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a1103bfa185db4cb533946ba85aa3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 4.24
+  enemySpeed: 4
   playerChaseRange: 2.91
   playereStopRange: 4.75
+  enemyHealth: 100
 --- !u!4 &735964470
 Transform:
   m_ObjectHideFlags: 0
@@ -304,6 +306,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &735964471
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735964466}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.24, y: -0.82}
+  m_Size: {x: 1.03, y: 0.0001}
+  m_Direction: 0
 --- !u!1 &1876203089
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1876203090}
   - component: {fileID: 1876203091}
+  - component: {fileID: 1876203092}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -388,6 +407,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1876203092
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876203089}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a128733bd9508744999a1ecf61c3a4af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1984369362
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +677,10 @@ PrefabInstance:
     - target: {fileID: 866321802613672604, guid: 4564879e906e65d45ae751c2b545d1f2, type: 3}
       propertyPath: m_Name
       value: Bryan
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861757207124925932, guid: 4564879e906e65d45ae751c2b545d1f2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4564879e906e65d45ae751c2b545d1f2, type: 3}
