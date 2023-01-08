@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float playerChaseRange; //A partir de que rango el enemigo nos persigue
     [SerializeField] float playereStopRange; //A partir de que rango el enemigo se aburre
 
+    private Animator enemyAnimator;
     private Vector3 directionToMove; //Direccion a la que se va a mover el moñeco
     private bool isChasing;
     private Transform playerToChase;
@@ -16,21 +17,26 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         enemyRigidbody = GetComponent<Rigidbody2D>();
-        playerToChase = FindObjectOfType<PlayerController>().transform; //Encuentra el player y guarda el transform
+        //Encuentra el player y guarda el transform
+        playerToChase = FindObjectOfType<PlayerController>().transform; 
+        //Como el script esta en Enemy, pero el animator en Body(children) lo tenemos que buscar asi
+        enemyAnimator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, playerToChase.position) < playerChaseRange) //Si la pos del jugador esta dentro del rango de busqueda
+        //Si la pos del jugador esta dentro del rango de busqueda
+        if (Vector3.Distance(transform.position, playerToChase.position) < playerChaseRange) 
         {
-            directionToMove = playerToChase.position-transform.position; //Formula similar a lo que usamos para apuntar
+            //Formula similar a lo que usamos para apuntar
+            directionToMove = playerToChase.position-transform.position; 
             isChasing = true;
             Debug.Log("Jugador en rango");
         }
         else if (Vector3.Distance(transform.position, playerToChase.position) < playereStopRange && isChasing)
         {
-            directionToMove = playerToChase.position - transform.position; //Formula similar a lo que usamos para apuntar
+            directionToMove = playerToChase.position - transform.position; 
 
         }
         else
@@ -41,6 +47,26 @@ public class EnemyController : MonoBehaviour
         }
         directionToMove.Normalize();
         enemyRigidbody.velocity = directionToMove * enemySpeed;
+
+        //Para controlar el isWalking bool
+        if(directionToMove != Vector3.zero)
+        {
+            enemyAnimator.SetBool("isWalking", true);
+        }
+        else
+        {
+            enemyAnimator.SetBool("isWalking", false);
+        }
+
+        //Rotar el sprite, similar al player pero ahora comparamos con la posicion del jugador
+        if (playerToChase.position.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else
+        {
+            transform.localScale = Vector3.one;
+        }
     }
 
     private void OnDrawGizmosSelected()
