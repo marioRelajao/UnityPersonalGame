@@ -28,17 +28,38 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //----------------------------------MOVIMIENTO DEL JUGADOR----------------------------------
-        movementInput.x = Input.GetAxisRaw("Horizontal"); //El eje X se guia por el input llamado "Horizontal"
-        movementInput.y = Input.GetAxisRaw("Vertical");
-        movementInput.Normalize();//Normalizamos movimiento diagonal
-        playerRigidbody.velocity = movementInput * movementSpeed;
+        PlayerMoving();
 
         //----------------------------------ROTAR ARMA----------------------------------
+        PointingGunAt();
+
+        //----------------------------------BOOL ANIM----------------------------------
+        PlayerAnimator();
+
+        //----------------------------------Disparar----------------------------------
+        PlayerShooting();
+
+    }
+
+    private void PlayerAnimator()
+    {
+        if (movementInput != Vector2.zero)
+        {
+            playerAnimator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("IsWalking", false);
+        }
+    }
+
+    private void PointingGunAt()
+    {
         Vector3 mousePos = Input.mousePosition;
         Vector3 screenPoint = mainCamera.WorldToScreenPoint(transform.localPosition); //Punto de la componente Transform de ese objeto
 
         Vector2 offset = new Vector2(mousePos.x - screenPoint.x, mousePos.y - screenPoint.y);
-        float angulo = Mathf.Atan2(offset.y,offset.x)*Mathf.Rad2Deg; //Retorna rad, necesitamos grados
+        float angulo = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg; //Retorna rad, necesitamos grados
         weaponArm.rotation = Quaternion.Euler(0, 0, angulo);
 
         //----------------------------------ROTAR SPRITE----------------------------------
@@ -52,22 +73,10 @@ public class PlayerController : MonoBehaviour
             transform.localScale = Vector3.one;//Seteamos todo a 1
             weaponArm.localScale = Vector3.one;
         }
+    }
 
-        //----------------------------------BOOL ANIM----------------------------------
-        if (movementInput != Vector2.zero)
-        {
-            playerAnimator.SetBool("IsWalking", true);
-        }
-        else
-        {
-            playerAnimator.SetBool("IsWalking", false);
-        }
-
-        //----------------------------------Disparar----------------------------------
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Instantiate(bullet,firePos.position,firePos.rotation);//Instanciamos la bala con la pos y rotacion correctas
-        //}
+    private void PlayerShooting()
+    {
         if (Input.GetMouseButton(0))
         {
             shotCounter -= Time.deltaTime;
@@ -78,6 +87,13 @@ public class PlayerController : MonoBehaviour
             }
         }
         shotCounter -= Time.deltaTime;
+    }
 
+    private void PlayerMoving()
+    {
+        movementInput.x = Input.GetAxisRaw("Horizontal"); //El eje X se guia por el input llamado "Horizontal"
+        movementInput.y = Input.GetAxisRaw("Vertical");
+        movementInput.Normalize();//Normalizamos movimiento diagonal
+        playerRigidbody.velocity = movementInput * movementSpeed;
     }
 }

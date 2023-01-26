@@ -287,9 +287,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 4
-  playerChaseRange: 2.91
-  playereStopRange: 4.75
+  playerChaseRange: 2.61
+  playerShootRange: 8.44
+  playereStopRange: 5.45
   enemyHealth: 100
+  esMelee: 0
+  enemyProjectile: {fileID: 5878049834852923618, guid: 7034808d5c5047a4b80d3d5fcca3f24e, type: 3}
+  firePosition: {fileID: 1245101674}
+  timeBetweenShots: 1
 --- !u!4 &735964470
 Transform:
   m_ObjectHideFlags: 0
@@ -303,6 +308,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1876203090}
+  - {fileID: 1245101674}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -322,6 +328,37 @@ CapsuleCollider2D:
   m_Offset: {x: 0.24, y: -0.82}
   m_Size: {x: 1.03, y: 0.0001}
   m_Direction: 0
+--- !u!1 &1245101673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1245101674}
+  m_Layer: 0
+  m_Name: FirePosEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1245101674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245101673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.68, y: 0.62, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 735964470}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1876203089
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +550,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1984369365
 BoxCollider2D:
@@ -626,13 +663,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 866321802613672602, guid: 4564879e906e65d45ae751c2b545d1f2, type: 3}
-      propertyPath: timeBetweenShots
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 866321802613672603, guid: 4564879e906e65d45ae751c2b545d1f2, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 866321802613672603, guid: 4564879e906e65d45ae751c2b545d1f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -677,10 +710,6 @@ PrefabInstance:
     - target: {fileID: 866321802613672604, guid: 4564879e906e65d45ae751c2b545d1f2, type: 3}
       propertyPath: m_Name
       value: Bryan
-      objectReference: {fileID: 0}
-    - target: {fileID: 7861757207124925932, guid: 4564879e906e65d45ae751c2b545d1f2, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4564879e906e65d45ae751c2b545d1f2, type: 3}

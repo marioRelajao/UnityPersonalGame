@@ -6,37 +6,101 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] float enemySpeed; //Controlamos la velocidad del enemigo
     [SerializeField] float playerChaseRange; //A partir de que rango el enemigo nos persigue
+    [SerializeField] float playerShootRange; //A partir de que rango el enemigo nos dispara
     [SerializeField] float playereStopRange; //A partir de que rango el enemigo se aburre
-    [SerializeField] int enemyHealth = 100;
+    [SerializeField] int enemyHealth = 100; //Vida, queremos recogerla de BBDD
+    [SerializeField] bool esMelee; //Es a melee o pega a distancia?
+    [SerializeField] GameObject enemyProjectile; //Que objeto instanciamos cuando el moñeco ataque a distancia
+    [SerializeField] Transform firePosition; //Punto de donde instanciamos el proyectil
+    [SerializeField] float timeBetweenShots; //Como en player, cadencia
+
+    private bool readyToShoot; //El enemigos es capaz de disparar
     private Rigidbody2D enemyRigidbody;
     private Animator enemyAnimator;
     private Vector3 directionToMove; //Direccion a la que se va a mover el moñeco
-    private bool isChasing;
-    private Transform playerToChase;
+    private bool isChasing; //Si hemos entrado en los circulos de deteccion
+    private Transform playerToChase; //Object al que hacemos chase si entra en rango
+    
+    
     // Start is called before the first frame update
     void Start()
     {
+        EnemySetUp();
+    }
+
+    private void EnemySetUp()
+    {
         enemyRigidbody = GetComponent<Rigidbody2D>();
         //Encuentra el player y guarda el transform
-        playerToChase = FindObjectOfType<PlayerController>().transform; 
+        playerToChase = FindObjectOfType<PlayerController>().transform;
         //Como el script esta en Enemy, pero el animator en Body(children) lo tenemos que buscar asi
         enemyAnimator = GetComponentInChildren<Animator>();
+        readyToShoot = true; //Cuando aparece puede disparar
     }
 
     // Update is called once per frame
     void Update()
     {
+        EnemyMoving();
+
+        EnemyAnimator();
+
+        EnemyRotate();
+
+        EnemyShoot();
+    }
+
+    private void EnemyShoot()
+    {
+        //----------COROUTINE--------------------
+        if (!esMelee &&
+            readyToShoot &&
+            Vector3.Distance(transform.position, playerToChase.position) < playerShootRange) //Si no somos enemigos a melee y podemos disparar
+        {
+            readyToShoot = false;
+            StartCoroutine(FireEnemyProjectile()); //En lugar de usar un counter, le pasamos el control a la coroutine y asi no la ejecutamso cada frame
+        }
+    }
+
+    private void EnemyRotate()
+    {
+        //Rotar el sprite, similar al player pero ahora comparamos con la posicion del jugador
+        if (playerToChase.position.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else
+        {
+            transform.localScale = Vector3.one;
+        }
+    }
+
+    private void EnemyAnimator()
+    {
+        //Para controlar el isWalking bool
+        if (directionToMove != Vector3.zero)
+        {
+            enemyAnimator.SetBool("isWalking", true);
+        }
+        else
+        {
+            enemyAnimator.SetBool("isWalking", false);
+        }
+    }
+
+    private void EnemyMoving()
+    {
         //Si la pos del jugador esta dentro del rango de busqueda
-        if (Vector3.Distance(transform.position, playerToChase.position) < playerChaseRange) 
+        if (Vector3.Distance(transform.position, playerToChase.position) < playerChaseRange)
         {
             //Formula similar a lo que usamos para apuntar
-            directionToMove = playerToChase.position-transform.position; 
+            directionToMove = playerToChase.position - transform.position;
             isChasing = true;
             Debug.Log("Jugador en rango");
         }
         else if (Vector3.Distance(transform.position, playerToChase.position) < playereStopRange && isChasing)
         {
-            directionToMove = playerToChase.position - transform.position; 
+            directionToMove = playerToChase.position - transform.position;
 
         }
         else
@@ -47,26 +111,13 @@ public class EnemyController : MonoBehaviour
         }
         directionToMove.Normalize();
         enemyRigidbody.velocity = directionToMove * enemySpeed;
+    }
 
-        //Para controlar el isWalking bool
-        if(directionToMove != Vector3.zero)
-        {
-            enemyAnimator.SetBool("isWalking", true);
-        }
-        else
-        {
-            enemyAnimator.SetBool("isWalking", false);
-        }
-
-        //Rotar el sprite, similar al player pero ahora comparamos con la posicion del jugador
-        if (playerToChase.position.x < transform.position.x)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
-        else
-        {
-            transform.localScale = Vector3.one;
-        }
+    IEnumerator FireEnemyProjectile()
+    {
+        yield return new WaitForSeconds(timeBetweenShots);
+        Instantiate(enemyProjectile, firePosition.position, firePosition.rotation);
+        readyToShoot = true;
     }
 
     public void DamageEnemy(int dmgTaken)
@@ -83,5 +134,7 @@ public class EnemyController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, playerChaseRange); //Asi vemos el rango en el que nos ve el enemigo
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, playereStopRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, playerShootRange);
     }
 }

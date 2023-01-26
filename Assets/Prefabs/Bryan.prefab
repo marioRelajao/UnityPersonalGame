@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 7861757207124925932}
   m_Layer: 6
   m_Name: Bryan
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -341,7 +341,7 @@ MonoBehaviour:
   bullet: {fileID: 6974096435802446665, guid: 96337898b66a37f4a88d15025c3f8f6a, type: 3}
   firePos: {fileID: 797522230240399046}
   playerRigidbody: {fileID: 866321802613672601}
-  timeBetweenShots: 0
+  timeBetweenShots: 0.5
   weaponArm: {fileID: 866321801176082106}
 --- !u!70 &866321802613672600
 CapsuleCollider2D:
