@@ -24,15 +24,31 @@ public class RoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
+        //Miramos la lista de enemigos
+        for (int i = enemies.Count - 1; i > -1; i--)
         {
-            if (closeDoorOnPlayerEnter)
+            //Si el enemigo ha muerto(hemos hecho Destroy())
+            if (enemies[i] == null)
+            {//Lo eliminamos de la lista
+                enemies.RemoveAt(i);
+            }
+        }
+        Debug.Log("Aun quedan " + enemies.Count + " enemigos");
+        if(enemies.Count == 0)
+        {
+            for(int i = 0; i < doorsToClose.Length; i++)
             {
+                doorsToClose[i].SetActive(false);
+            }
+        }
+    }
+    //Funcion para chapar las puertas
+    private void OnTriggerEnter2D(Collider2D collision)
+    {//Si lo que entra es un Player
+        if (collision.CompareTag("Player"))
+        {//Y bool=true
+            if (closeDoorOnPlayerEnter)
+            {//Cada puerta, cierrala
                 foreach(GameObject door in doorsToClose)
                 {
                     door.SetActive(true);

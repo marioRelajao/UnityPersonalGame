@@ -50,9 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 4
-  playerChaseRange: 2.61
+  playerChaseRange: 5.3
   playerShootRange: 8.44
-  playereStopRange: 5.45
+  playereStopRange: 7.15
   enemyHealth: 100
   esMelee: 0
   enemyProjectile: {fileID: 5878049834852923618, guid: 7034808d5c5047a4b80d3d5fcca3f24e, type: 3}
