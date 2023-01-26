@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5878049834852923620}
   - component: {fileID: 5878049834852923619}
   - component: {fileID: 581855265510694015}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SwordThrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
