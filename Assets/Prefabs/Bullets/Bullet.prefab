@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfe9305ca83e6848bab21a476a79e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 10
+  bulletSpeed: 15
   bulletImpactEffect: {fileID: 7963931012577547322, guid: b6447a0674fecdf4394ffd878e64c975, type: 3}
   bulletImpactEffectOnEnemy: {fileID: 4188872009867330740, guid: a990042658b8a77458b0d66df9cec1ec, type: 3}
   dmgBullet: 50

@@ -348,7 +348,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xeonsheet_4
+      name: d3
       rect:
         serializedVersion: 2
         x: 129
@@ -369,7 +369,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xeonsheet_5
+      name: d4
       rect:
         serializedVersion: 2
         x: 184
@@ -390,7 +390,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xeonsheet_9
+      name: d5
       rect:
         serializedVersion: 2
         x: 240
@@ -411,7 +411,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xeonsheet_10
+      name: d6
       rect:
         serializedVersion: 2
         x: 316
@@ -432,7 +432,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xeonsheet_11
+      name: d7
       rect:
         serializedVersion: 2
         x: 382
@@ -453,7 +453,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xeonsheet_12
+      name: d1
       rect:
         serializedVersion: 2
         x: 13
@@ -474,7 +474,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xeonsheet_13
+      name: d2
       rect:
         serializedVersion: 2
         x: 63
@@ -506,10 +506,13 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       xeonsheet_38: -1123871099
+      d7: -415360536
       xeonsheet_18: 934797810
       xeonsheet_42: -1700221259
       xeonsheet_43: 1396565082
       xeonsheet_63: 1480539066
+      d4: -1990975982
+      d6: 550862786
       xeonsheet_35: 679027213
       xeonsheet_28: -1229247152
       xeonsheet_17: 2071796916
@@ -522,15 +525,14 @@ TextureImporter:
       xeonsheet_3: -216478833
       idle_1: 641004382
       xeonsheet_60: 433798067
+      d1: -4195029
       xeonsheet_34: -2024373359
       xeonsheet_47: -1299798905
-      xeonsheet_10: 550862786
-      xeonsheet_4: -730969133
       xeonsheet_14: 1727625833
-      xeonsheet_2: -146980057
       xeonsheet_33: -1628056461
-      idle_2: -670458661
+      xeonsheet_2: -146980057
       xeonsheet_23: 888258849
+      idle_2: -670458661
       xeonsheet_49: 1730051447
       xeonsheet_1: 744323696
       xeonsheet_21: -756065224
@@ -540,19 +542,17 @@ TextureImporter:
       xeonsheet_0: 66053484
       xeonsheet_69: 849535113
       xeonsheet_27: 1327350229
-      xeonsheet_11: -415360536
       xeonsheet_16: -941914063
-      xeonsheet_40: -303334086
       xeonsheet_30: -755098629
+      xeonsheet_40: -303334086
       xeonsheet_72: -1800143495
       xeonsheet_37: 177219837
       xeonsheet_25: -1375905128
-      xeonsheet_13: 415300116
       xeonsheet_56: 455557694
-      xeonsheet_5: -1990975982
+      d2: 415300116
       xeonsheet_64: -652223758
-      xeonsheet_9: 1235471804
       xeonsheet_41: -1669004244
+      d3: -730969133
       xeonsheet_46: -1683905649
       xeonsheet_22: 1104458356
       xeonsheet_24: 1941743323
@@ -567,7 +567,7 @@ TextureImporter:
       xeonsheet_48: 1739991148
       xeonsheet_57: -1562486718
       xeonsheet_36: 608481846
-      xeonsheet_12: -4195029
+      xeonsheet_65: -231989856
       xeonsheet_26: -995195489
       xeonsheet_52: 33872106
       xeonsheet_44: 1875315404
@@ -575,7 +575,7 @@ TextureImporter:
       xeonsheet_71: -1898429376
       xeonsheet_74: -698858604
       xeonsheet_66: -1091967770
-      xeonsheet_65: -231989856
+      d5: 1235471804
       xeonsheet_20: -1163987863
       xeonsheet_31: -1612339416
       xeonsheet_68: 35015065
