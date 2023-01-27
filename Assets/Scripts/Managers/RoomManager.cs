@@ -24,22 +24,32 @@ public class RoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Miramos la lista de enemigos
-        for (int i = enemies.Count - 1; i > -1; i--)
+        StartCoroutine("DoCheck");
+    }
+    IEnumerator DoCheck()
+    {
+        for (; ; )
         {
-            //Si el enemigo ha muerto(hemos hecho Destroy())
-            if (enemies[i] == null)
-            {//Lo eliminamos de la lista
-                enemies.RemoveAt(i);
-            }
-        }
-        Debug.Log("Aun quedan " + enemies.Count + " enemigos");
-        if(enemies.Count == 0)
-        {
-            for(int i = 0; i < doorsToClose.Length; i++)
+            // execute block of code here
+            //Miramos la lista de enemigos
+            roomCollider.OverlapCollider(contactFilter2D, enemies);
+            for (int i = enemies.Count - 1; i > -1; i--)
             {
-                doorsToClose[i].SetActive(false);
+                //Si el enemigo ha muerto(hemos hecho Destroy())
+                if (enemies[i] == null)
+                {//Lo eliminamos de la lista
+                    enemies.RemoveAt(i);
+                }
             }
+            Debug.Log("Aun quedan " + enemies.Count + " enemigos");
+            if (enemies.Count == 0)
+            {
+                for (int i = 0; i < doorsToClose.Length; i++)
+                {
+                    doorsToClose[i].SetActive(false);
+                }
+            }
+            yield return new WaitForSeconds(5);
         }
     }
     //Funcion para chapar las puertas
