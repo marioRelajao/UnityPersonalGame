@@ -68,13 +68,13 @@ public class EnemyController : MonoBehaviour
         //Rotar el sprite, similar al player pero ahora comparamos con la posicion del jugador
         if (playerToChase.position.x < transform.position.x)
         {
-            renderer.flipX = true;
-            //transform.localScale = new Vector3(-1f, 1f, 1f);
+            //renderer.flipX = true;
+            transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         else
         {
-            renderer.flipX = false;
-            //transform.localScale = Vector3.one;
+            //renderer.flipX = false;
+            transform.localScale = Vector3.one;
         }
     }
 

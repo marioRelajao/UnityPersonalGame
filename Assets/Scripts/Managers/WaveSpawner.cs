@@ -13,6 +13,8 @@ public class Wave
 }
 public class WaveSpawner : MonoBehaviour
 {
+    [SerializeField] GameObject[] doorsToClose; //Array con las puertas a abrir
+    [SerializeField] bool closeDoorOnPlayerEnter, openDoorsNoEnemies;  //Bool que necesito para las condiciones
     public Wave[] waves;
     public Transform[] spawnPoints;
     public Animator animator;
@@ -48,6 +50,10 @@ public class WaveSpawner : MonoBehaviour
             }
             else
             {
+                for (int i = 0; i < doorsToClose.Length; i++)
+                {
+                    doorsToClose[i].SetActive(false);
+                }
                 Debug.Log("GameFinish");
             }
         }
@@ -56,6 +62,20 @@ public class WaveSpawner : MonoBehaviour
     {
         currentWaveNumber++;
         canSpawn = true;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {//Si lo que entra es un Player
+        if (collision.CompareTag("Player"))
+        {//Y bool=true
+            Debug.Log("Player ha entrado");
+            if (closeDoorOnPlayerEnter)
+            {//Cada puerta, cierrala
+                foreach (GameObject door in doorsToClose)
+                {
+                    door.SetActive(true);
+                }
+            }
+        }
     }
 
     void SpawnWave()
