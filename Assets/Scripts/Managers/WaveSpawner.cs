@@ -17,10 +17,10 @@ public class WaveSpawner : MonoBehaviour
     public Transform[] spawnPoints;
     public Animator animator;
     public Text waveName;
-    private Wave currentWave;
-    private int currentWaveNumber;
+    [SerializeField] Wave currentWave;
+    [SerializeField] int currentWaveNumber;
     private float nextSpawnTime;
-    private bool canSpawn = true;
+    [SerializeField] bool canSpawn = true;
     private bool canAnimate = false;
     // Start is called before the first frame update
     void Start()
@@ -53,7 +53,6 @@ public class WaveSpawner : MonoBehaviour
         }
     }
     void SpawnNextWave()
-
     {
         currentWaveNumber++;
         canSpawn = true;

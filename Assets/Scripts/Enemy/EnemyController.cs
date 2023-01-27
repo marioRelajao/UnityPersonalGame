@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
     private Vector3 directionToMove; //Direccion a la que se va a mover el moñeco
     private bool isChasing; //Si hemos entrado en los circulos de deteccion
     private Transform playerToChase; //Object al que hacemos chase si entra en rango
-    
+    private SpriteRenderer renderer;
     
     // Start is called before the first frame update
     void Start()
@@ -30,6 +30,7 @@ public class EnemyController : MonoBehaviour
 
     private void EnemySetUp()
     {
+        renderer = GetComponentInChildren<SpriteRenderer>();
         enemyRigidbody = GetComponent<Rigidbody2D>();
         //Encuentra el player y guarda el transform
         playerToChase = FindObjectOfType<PlayerController>().transform;
@@ -67,11 +68,13 @@ public class EnemyController : MonoBehaviour
         //Rotar el sprite, similar al player pero ahora comparamos con la posicion del jugador
         if (playerToChase.position.x < transform.position.x)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            renderer.flipX = true;
+            //transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         else
         {
-            transform.localScale = Vector3.one;
+            renderer.flipX = false;
+            //transform.localScale = Vector3.one;
         }
     }
 
@@ -96,7 +99,6 @@ public class EnemyController : MonoBehaviour
             //Formula similar a lo que usamos para apuntar
             directionToMove = playerToChase.position - transform.position;
             isChasing = true;
-            Debug.Log("Jugador en rango");
         }
         else if (Vector3.Distance(transform.position, playerToChase.position) < playereStopRange && isChasing)
         {
@@ -107,7 +109,6 @@ public class EnemyController : MonoBehaviour
         {
             directionToMove = Vector3.zero;
             isChasing = false;
-            Debug.Log("Jugador fuera del rango");
         }
         directionToMove.Normalize();
         enemyRigidbody.velocity = directionToMove * enemySpeed;
