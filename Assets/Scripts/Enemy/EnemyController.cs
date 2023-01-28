@@ -117,8 +117,12 @@ public class EnemyController : MonoBehaviour
     IEnumerator FireEnemyProjectile()
     {
         yield return new WaitForSeconds(timeBetweenShots);
-        Instantiate(enemyProjectile, firePosition.position, firePosition.rotation);
-        readyToShoot = true;
+        if (playerToChase.gameObject.activeInHierarchy) //Que no nos disparen si ya estamos muertos
+        {
+            Instantiate(enemyProjectile, firePosition.position, firePosition.rotation);
+            readyToShoot = true;
+        }
+        
     }
 
     public void DamageEnemy(int dmgTaken)
