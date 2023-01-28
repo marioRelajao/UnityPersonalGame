@@ -134,3 +134,4 @@ MonoBehaviour:
   firePos: {fileID: 8689306938751471761}
   gunImage: {fileID: 21300000, guid: a9d6572302ff7ec4f98f39ae043d58d5, type: 3}
   gunName: Windows 95
+  sfxToPlay: 1

@@ -7,7 +7,11 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     [SerializeField] AudioClip[] Music;
+    [SerializeField] AudioClip[] SFX;
+
+
     private AudioSource audioSource;
+
     private void Awake()
     {
         instance = this;
@@ -35,5 +39,10 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.clip = Music[Music.Length - 1];
         audioSource.Play();
+    }
+
+    public void PlaySFX(int sfxNumber)
+    {
+        AudioSource.PlayClipAtPoint(SFX[sfxNumber], Camera.main.transform.position);
     }
 }

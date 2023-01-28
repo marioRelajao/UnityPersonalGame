@@ -10,6 +10,7 @@ public class WeaponSystem : MonoBehaviour
     [SerializeField] Transform firePos; //Desde este punto
     [SerializeField] Sprite gunImage;
     [SerializeField] string gunName;
+    [SerializeField] int sfxToPlay;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,9 +31,15 @@ public class WeaponSystem : MonoBehaviour
             if (shotCounter <= 0)
             {
                 Instantiate(bullet, firePos.position, firePos.rotation);//Instanciamos la bala con la pos y rotacion correctas
+                PlayWeaponSFX();
                 shotCounter = timeBetweenShots;
             }
         }
         shotCounter -= Time.deltaTime;
+    }
+
+    public void PlayWeaponSFX()
+    {
+        AudioManager.instance.PlaySFX(sfxToPlay);
     }
 }

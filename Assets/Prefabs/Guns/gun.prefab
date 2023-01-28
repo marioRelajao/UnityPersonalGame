@@ -134,3 +134,4 @@ MonoBehaviour:
   firePos: {fileID: 7503712848897310152}
   gunImage: {fileID: 21300000, guid: ef4729af0d5cf0f418f4bc89366ac7e2, type: 3}
   gunName: Kar 98
+  sfxToPlay: 2
