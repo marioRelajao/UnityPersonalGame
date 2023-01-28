@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
+    public Slider healthSlider;
+    public TextMeshProUGUI healthText;
 
-    [SerializeField] Image gunImage;
-    [SerializeField] Text weaponName;
+    //[SerializeField] Image gunImage;
+    //[SerializeField] Text weaponName;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         instance = this;
     }

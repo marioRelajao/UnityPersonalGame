@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 6325092213266792149}
   - component: {fileID: 630972045762436278}
   - component: {fileID: 7212727917670037011}
-  - component: {fileID: 2035073115538849053}
   m_Layer: 6
   m_Name: ExitLevelDoor
   m_TagString: Untagged
@@ -187,20 +186,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 1.24}
   m_EdgeRadius: 0
---- !u!114 &2035073115538849053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7191986185517409675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aed275416b6ba3b4aa98c186a21b5172, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunImage: {fileID: 0}
-  weaponName: {fileID: 0}
 --- !u!1 &7430283404231126870
 GameObject:
   m_ObjectHideFlags: 0
