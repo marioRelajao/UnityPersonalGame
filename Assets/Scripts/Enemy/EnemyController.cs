@@ -160,6 +160,7 @@ public class EnemyController : MonoBehaviour
         enemyHealth -= dmgTaken;
         if (enemyHealth <= 0)
         {
+            GetComponent<ItemDropper>().DropItem();
             Destroy(gameObject);
         }
     }

@@ -9,6 +9,9 @@ public class PlayerBulletController : MonoBehaviour
     [SerializeField] GameObject bulletImpactEffect;
     [SerializeField] GameObject bulletImpactEffectOnEnemy;
     [SerializeField] int dmgBullet = 10;
+    [SerializeField] int sfxToPlay;
+
+
     private Rigidbody2D bulletRigidBody;
 
     // Start is called before the first frame update
@@ -31,6 +34,7 @@ public class PlayerBulletController : MonoBehaviour
         {
             Instantiate(bulletImpactEffectOnEnemy.transform, transform.position, Quaternion.Euler(0, 0, 0));
             collision.GetComponent<EnemyController>().DamageEnemy(dmgBullet);
+            PlayWeaponSFX();
         }
         else
         {
@@ -38,5 +42,10 @@ public class PlayerBulletController : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    public void PlayWeaponSFX()
+    {
+        AudioManager.instance.PlaySFX(sfxToPlay);
     }
 }

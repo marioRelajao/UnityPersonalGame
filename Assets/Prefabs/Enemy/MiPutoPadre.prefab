@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1294553269689179457}
   - component: {fileID: 1294553269689179462}
   - component: {fileID: 1294553269689179458}
+  - component: {fileID: 3276852534391885166}
   m_Layer: 8
   m_Name: MiPutoPadre
   m_TagString: Enemy
@@ -58,6 +59,8 @@ MonoBehaviour:
   enemyProjectile: {fileID: 5878049834852923618, guid: 7084418ed480ddd4cac8f35f142c6af0, type: 3}
   firePosition: {fileID: 1294553271310978591}
   timeBetweenShots: 1
+  wanderLength: 0
+  pauseLength: 0
 --- !u!61 &1294553269689179457
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -121,6 +124,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0.24, y: -0.82}
   m_Size: {x: 0.58, y: 0.0001}
   m_Direction: 0
+--- !u!114 &3276852534391885166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294553269689179463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f581a3713e2dfdf408f4440bc8c7ee9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsToDrop:
+  - {fileID: 771117209995500426, guid: 112f2b33c12e5e242b56ee0c85843409, type: 3}
+  itemDropChance: 2
 --- !u!1 &1294553270696388132
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ public class LevelExit : MonoBehaviour
 {
     [SerializeField] string lvlToLoad;
     [SerializeField] Animator transition;
+
+
     // Start is called before the first frame update
     
     private void OnTriggerEnter2D(Collider2D collision)

@@ -10,9 +10,12 @@ public class UIManager : MonoBehaviour
     public Slider healthSlider;
     public TextMeshProUGUI healthText;
 
+    [SerializeField] TextMeshProUGUI bolivarText;
+
     //[SerializeField] Image gunImage;
     //[SerializeField] Text weaponName;
     // Start is called before the first frame update
+    
     private void Awake()
     {
         instance = this;
@@ -22,5 +25,10 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void UpdateBolivarText(int cantidadBolivar)
+    {
+        bolivarText.text = cantidadBolivar.ToString();
     }
 }
