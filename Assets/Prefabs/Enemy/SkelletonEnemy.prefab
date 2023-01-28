@@ -58,6 +58,8 @@ MonoBehaviour:
   enemyProjectile: {fileID: 5878049834852923618, guid: 7034808d5c5047a4b80d3d5fcca3f24e, type: 3}
   firePosition: {fileID: 1294553271310978591}
   timeBetweenShots: 1
+  wanderLength: 2
+  pauseLength: 2
 --- !u!61 &1294553269689179457
 BoxCollider2D:
   m_ObjectHideFlags: 0

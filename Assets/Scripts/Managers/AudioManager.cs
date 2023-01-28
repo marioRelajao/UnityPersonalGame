@@ -7,9 +7,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     [SerializeField] AudioClip[] Music;
-    [SerializeField] AudioClip[] SFX;
+    [SerializeField] GameObject[] SFX;
 
-
+    private GameObject theSFX;
     private AudioSource audioSource;
 
     private void Awake()
@@ -43,6 +43,13 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(int sfxNumber)
     {
-        AudioSource.PlayClipAtPoint(SFX[sfxNumber], Camera.main.transform.position);
+        //AudioSource.PlayClipAtPoint(SFX[sfxNumber], Camera.main.transform.position);
+        theSFX = Instantiate(SFX[sfxNumber], Camera.main.transform);
+        Invoke("DestroySFXGO", theSFX.GetComponent<AudioSource>().clip.length);
+    }
+
+    private void DestroySFXGO()
+    {
+        Destroy(theSFX);
     }
 }

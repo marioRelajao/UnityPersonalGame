@@ -436,8 +436,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4894acf64f632b4baddb4ca61aeb274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 100
-  maxHealth: 100
+  currentHealth: 0
+  maxHealth: 20
+  invencibilityTime: 1
+  playerSprite: {fileID: 866321801638658097}
 --- !u!1001 &1398366274044195532
 PrefabInstance:
   m_ObjectHideFlags: 0

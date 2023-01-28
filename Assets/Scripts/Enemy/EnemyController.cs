@@ -13,7 +13,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField] GameObject enemyProjectile; //Que objeto instanciamos cuando el moñeco ataque a distancia
     [SerializeField] Transform firePosition; //Punto de donde instanciamos el proyectil
     [SerializeField] float timeBetweenShots; //Como en player, cadencia
+    [SerializeField] float wanderLength, pauseLength;
 
+    private float wanderCounter=2, pauseCounter=2;
+    private Vector3 wanderDirection;
     private bool readyToShoot; //El enemigos es capaz de disparar
     private Rigidbody2D enemyRigidbody;
     private Animator enemyAnimator;
@@ -26,6 +29,8 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         EnemySetUp();
+        pauseCounter = Random.Range(pauseCounter * 0.5f, pauseCounter * 1.25f);
+
     }
 
     private void EnemySetUp()
@@ -109,6 +114,31 @@ public class EnemyController : MonoBehaviour
         {
             directionToMove = Vector3.zero;
             isChasing = false;
+        }
+       // Debug.Log(pauseCounter);
+        if (wanderCounter > 0 && !isChasing)
+        {
+            //Debug.Log("Deberia de patrullar");
+            wanderCounter -= Time.deltaTime;
+
+            directionToMove = wanderDirection;
+
+            if (wanderCounter <= 0)
+            {
+                pauseCounter = Random.Range(pauseLength * 0.5f, pauseLength * 1.25f);
+            }
+        }
+
+        if (pauseCounter > 0)
+        {
+            pauseCounter -= Time.deltaTime;
+           // Debug.Log("Dentro pause counter");
+
+            if (pauseCounter <= 0)
+            {
+                wanderCounter = Random.Range(wanderLength * 0.5f, wanderLength * 1.25f);
+                wanderDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
+            }
         }
         directionToMove.Normalize();
         enemyRigidbody.velocity = directionToMove * enemySpeed;
