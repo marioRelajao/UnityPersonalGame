@@ -138,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 5
   bulletImpactEffect: {fileID: 7060178004106093515, guid: 0312b393c5afc8c42955c31382f462a4, type: 3}
+  bulletDamageAmount: 10
 --- !u!50 &581855265510694015
 Rigidbody2D:
   serializedVersion: 4

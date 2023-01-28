@@ -8,11 +8,12 @@ public class WeaponSystem : MonoBehaviour
     [SerializeField] float timeBetweenShots; //Añadimos cadencia
     [SerializeField] GameObject bullet; //Para spawnear la bala
     [SerializeField] Transform firePos; //Desde este punto
+    [SerializeField] Sprite gunImage;
+    [SerializeField] string gunName;
     // Start is called before the first frame update
     void Start()
     {
         shotCounter = 0;
-
     }
 
     // Update is called once per frame

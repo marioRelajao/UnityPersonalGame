@@ -6,7 +6,7 @@ public class EnemyBulletController : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
     [SerializeField] GameObject bulletImpactEffect; //Efecto de la espada rompiendo
-
+    [SerializeField] int bulletDamageAmount;
 
     private Vector3 playerDirection; //Para ubicar la posicion del jugador
 
@@ -29,6 +29,7 @@ public class EnemyBulletController : MonoBehaviour
         if (collision.CompareTag("Player")) //Si la colision es con un elemento con tag Player
         {
             //Instanciamos la anim
+            collision.GetComponent<PlayerHealthHandler>().DamagePlayer(bulletDamageAmount);
             Debug.Log("Player hit");
         }
         Instantiate(bulletImpactEffect.transform, transform.position, transform.localRotation);
