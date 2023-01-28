@@ -35,6 +35,7 @@ public class PlayerHealthHandler : MonoBehaviour
             {
                 //Muelto
                 Debug.Log("Muelto");
+                AudioManager.instance.PlayGameOverMusic();
                 gameObject.SetActive(false);
             }
             StartCoroutine(PlayerIsInvicible());
