@@ -41,4 +41,6 @@ public class GameManager : MonoBehaviour
         UIManager.instance.UpdateBolivarText(currentBolivares);
 
     }
+
+    public int GetCurrentBolivar() { return currentBolivares; }
 }

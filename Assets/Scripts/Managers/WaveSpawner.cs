@@ -24,6 +24,7 @@ public class WaveSpawner : MonoBehaviour
     private float nextSpawnTime;
     [SerializeField] bool canSpawn = true;
     private bool canAnimate = false;
+    private bool startWaves = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,29 +35,33 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentWave = waves[currentWaveNumber];
-        SpawnWave();
-        GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (totalEnemies.Length == 0)
+        if (startWaves)
         {
-            if (currentWaveNumber + 1 != waves.Length)
+            currentWave = waves[currentWaveNumber];
+            SpawnWave();
+            GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+            if (totalEnemies.Length == 0)
             {
-                if (canAnimate)
+                if (currentWaveNumber + 1 != waves.Length)
                 {
-                    waveName.text = waves[currentWaveNumber + 1].waveName;
-                    animator.SetTrigger("WaveComplete");
-                    canAnimate = false;
+                    if (canAnimate)
+                    {
+                        waveName.text = waves[currentWaveNumber + 1].waveName;
+                        animator.SetTrigger("WaveComplete");
+                        canAnimate = false;
+                    }
                 }
-            }
-            else
-            {
-                for (int i = 0; i < doorsToClose.Length; i++)
+                else
                 {
-                    doorsToClose[i].SetActive(false);
+                    for (int i = 0; i < doorsToClose.Length; i++)
+                    {
+                        doorsToClose[i].SetActive(false);
+                    }
+                    Debug.Log("GameFinish");
                 }
-                Debug.Log("GameFinish");
             }
         }
+        
     }
     void SpawnNextWave()
     {
@@ -67,6 +72,7 @@ public class WaveSpawner : MonoBehaviour
     {//Si lo que entra es un Player
         if (collision.CompareTag("Player"))
         {//Y bool=true
+            startWaves = true;
             Debug.Log("Player ha entrado");
             if (closeDoorOnPlayerEnter)
             {//Cada puerta, cierrala

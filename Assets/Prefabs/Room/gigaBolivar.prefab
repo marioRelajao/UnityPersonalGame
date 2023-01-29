@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d18bfed61bebf64e95d9923d8814cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bolivarAmount: 1000
+  bolivarAmount: 10000
   sfxToPlay: 3
 --- !u!58 &771117209995500427
 CircleCollider2D:

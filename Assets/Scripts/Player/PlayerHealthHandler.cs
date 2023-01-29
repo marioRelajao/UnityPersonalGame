@@ -75,4 +75,14 @@ public class PlayerHealthHandler : MonoBehaviour
         UIManager.instance.healthText.text = currentHealth + "/" + maxHealth; //Cambiamos el valor del texto de la vida
         UIManager.instance.healthSlider.value = currentHealth;//Movemos el slider
     }
+
+    public void AddHpToPlayer(int healAmount)
+    {
+        currentHealth += healAmount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        UpdatePlayerHealth();
+    }
 }
