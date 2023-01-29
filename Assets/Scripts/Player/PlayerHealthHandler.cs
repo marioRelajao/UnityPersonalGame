@@ -15,7 +15,6 @@ public class PlayerHealthHandler : MonoBehaviour
     void Start()
     {
         isInvincible = false;
-
         currentHealth = maxHealth;
         UIManager.instance.healthSlider.maxValue = maxHealth;
         UpdatePlayerHealth();

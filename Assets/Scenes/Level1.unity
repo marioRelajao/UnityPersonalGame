@@ -130075,6 +130075,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5467185697108969281, guid: 0760ae7641e0a9a4f906d4807781a0fe, type: 3}
+      propertyPath: waves.Array.data[1].noOfEnemies
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5467185697230207416, guid: 0760ae7641e0a9a4f906d4807781a0fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.1
