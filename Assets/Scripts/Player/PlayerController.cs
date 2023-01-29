@@ -9,10 +9,26 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody2D playerRigidbody; //Para poder controlar el movimiento del pana
     [SerializeField] Transform weaponArm; //Apuntar arma
 
+    public static PlayerController instance;
+    
     private Animator playerAnimator;
     private Camera mainCamera;
     private Vector2 movementInput; //Vector de 2 dimensiones [X,Y] para el movimiento
 
+
+    private void Awake()
+    {
+        if(instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+
+        DontDestroyOnLoad(this);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +67,11 @@ public class PlayerController : MonoBehaviour
 
     private void PointingGunAt()
     {
+        if(mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+
         Vector3 mousePos = Input.mousePosition;
         Vector3 screenPoint = mainCamera.WorldToScreenPoint(transform.localPosition); //Punto de la componente Transform de ese objeto
 

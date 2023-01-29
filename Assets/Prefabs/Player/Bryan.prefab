@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 20
+  maxHealth: 50
   invencibilityTime: 1
   playerSprite: {fileID: 866321801638658097}
 --- !u!1001 &1398366274044195532
@@ -447,9 +447,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 866321801176082106}
     m_Modifications:
+    - target: {fileID: 8429767980862117239, guid: ba5854c268e13c247a0075df36010d3b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9187919073506167138, guid: ba5854c268e13c247a0075df36010d3b, type: 3}
       propertyPath: m_Name
       value: w98_gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187919073506167138, guid: ba5854c268e13c247a0075df36010d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9187919073506167139, guid: ba5854c268e13c247a0075df36010d3b, type: 3}
       propertyPath: m_RootOrder
@@ -559,7 +567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8013625832864982075, guid: a62519d59b314364dbc986ac6cf48e3f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a62519d59b314364dbc986ac6cf48e3f, type: 3}

@@ -1538,10 +1538,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 566253261, guid: 4564879e906e65d45ae751c2b545d1f2, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 866321802613672603, guid: 4564879e906e65d45ae751c2b545d1f2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1589,10 +1585,6 @@ PrefabInstance:
     - target: {fileID: 866321802613672604, guid: 4564879e906e65d45ae751c2b545d1f2, type: 3}
       propertyPath: m_Name
       value: Bryan
-      objectReference: {fileID: 0}
-    - target: {fileID: 7465688245158143931, guid: 4564879e906e65d45ae751c2b545d1f2, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4564879e906e65d45ae751c2b545d1f2, type: 3}

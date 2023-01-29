@@ -15,7 +15,10 @@ public class UIManager : MonoBehaviour
     //[SerializeField] Image gunImage;
     //[SerializeField] Text weaponName;
     // Start is called before the first frame update
-    
+    private void Start()
+    {
+        StartCoroutine(UpdatePlayerUI());
+    }
     private void Awake()
     {
         instance = this;
@@ -25,6 +28,23 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public IEnumerator UpdatePlayerUI()
+    {
+        yield return new WaitForSeconds(0.1f);
+        PlayerHealthHandler playerHealth = null;
+        while(playerHealth == null)
+        {
+            playerHealth = FindObjectOfType<PlayerHealthHandler>();
+        }
+        healthSlider.maxValue = playerHealth.GetMaxHealth();
+        healthSlider.value = playerHealth.GetCurrentHealth();
+        Debug.Log("Vida max: " + playerHealth.GetMaxHealth());
+        healthText.text = playerHealth.GetCurrentHealth() + "/" + playerHealth.GetMaxHealth();
+
+        bolivarText.text = GameManager.instance.GetCurrentBolivar().ToString();
+    
     }
 
     public void UpdateBolivarText(int cantidadBolivar)

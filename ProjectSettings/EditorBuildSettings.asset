@@ -6,12 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/TestAlguno.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: 50bd78fffb409834abbe3d9148c8ddb6
   - enabled: 1
-    path: Assets/Scenes/Test2.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 8542ec04acc896546bc0e4a10e012496
+  - enabled: 1
+    path: Assets/Scenes/VicotriaRoyale.unity
+    guid: e2c456f411859da4c805951c4add4b68
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 986424d6fe298e14e9628a2e346fe8d5
   m_configObjects: {}

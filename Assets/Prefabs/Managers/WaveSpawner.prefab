@@ -550,7 +550,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 530a481dc58b61a47bdcd65cd85c66c5, type: 3}
     m_FontSize: 145
     m_FontStyle: 0
     m_BestFit: 0
@@ -1129,7 +1129,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 530a481dc58b61a47bdcd65cd85c66c5, type: 3}
     m_FontSize: 145
     m_FontStyle: 0
     m_BestFit: 0
@@ -1423,6 +1423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorsToClose:
   - {fileID: 8369448599433075132}
+  - {fileID: 8369448598716171385}
   closeDoorOnPlayerEnter: 1
   openDoorsNoEnemies: 0
   waves:
@@ -1639,7 +1640,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 530a481dc58b61a47bdcd65cd85c66c5, type: 3}
     m_FontSize: 145
     m_FontStyle: 0
     m_BestFit: 0
@@ -1750,7 +1751,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 530a481dc58b61a47bdcd65cd85c66c5, type: 3}
     m_FontSize: 145
     m_FontStyle: 0
     m_BestFit: 0
@@ -1762,7 +1763,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Wave Name
+  m_Text: Ready?
 --- !u!1 &5467185697271519357
 GameObject:
   m_ObjectHideFlags: 0
@@ -2220,7 +2221,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 530a481dc58b61a47bdcd65cd85c66c5, type: 3}
     m_FontSize: 145
     m_FontStyle: 0
     m_BestFit: 0
@@ -2331,7 +2332,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 530a481dc58b61a47bdcd65cd85c66c5, type: 3}
     m_FontSize: 145
     m_FontStyle: 0
     m_BestFit: 0
@@ -2388,7 +2389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4609743476330766096, guid: 38cc748b42ca09847a1988fb8ce09c61, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5962766620950043959, guid: 38cc748b42ca09847a1988fb8ce09c61, type: 3}
       propertyPath: m_RootOrder
@@ -2457,6 +2458,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4609743476330766096, guid: 38cc748b42ca09847a1988fb8ce09c61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5962766620950043959, guid: 38cc748b42ca09847a1988fb8ce09c61, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2506,5 +2511,10 @@ PrefabInstance:
 --- !u!4 &1810263202924611166 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5962766620950043959, guid: 38cc748b42ca09847a1988fb8ce09c61, type: 3}
+  m_PrefabInstance: {fileID: 5467185697423154025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8369448598716171385 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4609743476330766096, guid: 38cc748b42ca09847a1988fb8ce09c61, type: 3}
   m_PrefabInstance: {fileID: 5467185697423154025}
   m_PrefabAsset: {fileID: 0}

@@ -47,6 +47,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FindPlayer();
         EnemyMoving();
 
         EnemyAnimator();
@@ -54,6 +55,15 @@ public class EnemyController : MonoBehaviour
         EnemyRotate();
 
         EnemyShoot();
+
+    }
+
+    private void FindPlayer()
+    {
+        while (playerToChase == null)
+        {
+            playerToChase = FindObjectOfType<PlayerController>().transform;
+        }
     }
 
     private void EnemyShoot()
